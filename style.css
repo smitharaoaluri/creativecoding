@@ -1,0 +1,305 @@
+@import url('https://use.typekit.net/xxxxxxx.css');
+
+/*
+  Adobe Fonts:
+  Replace the @import above with your Adobe Fonts project CSS URL if you
+  have one. If Abadi is already active in your Adobe Portfolio project,
+  you can also set --font to the exact family name used by your web project.
+*/
+
+:root {
+  --green: #154329;
+  --paper: #f8f8f5;
+  --ink: #154329;
+  --muted: rgba(21, 67, 41, .68);
+  --line: rgba(21, 67, 41, .22);
+  --white: #ffffff;
+  --font: "Abadi", "Abadi MT Condensed Light", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, a { font: inherit; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 4vw 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: .11em;
+  font-weight: 500;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 28px;
+}
+
+.site-header nav a {
+  font-size: 11px;
+  letter-spacing: .09em;
+}
+
+.site-header nav a:hover {
+  opacity: .6;
+}
+
+main {
+  width: min(1440px, 92vw);
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 9vw 0 7vw;
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: .12em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(38px, 5.2vw, 76px);
+  line-height: 1.02;
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 3.2vw;
+  row-gap: 7vw;
+  padding-bottom: 12vw;
+}
+
+.project-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.thumb {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #222;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.project-button:hover .thumb img,
+.project-button:focus-visible .thumb img {
+  transform: scale(1.025);
+}
+
+.card-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.project-title {
+  display: block;
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.project-meta,
+.number {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  line-height: 1.25;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.number {
+  margin-top: 2px;
+}
+
+/* Interactive sketch modal */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3vw;
+}
+
+.modal.is-open { display: flex; }
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 67, 41, .78);
+  backdrop-filter: blur(6px);
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 94vw);
+  height: min(900px, 92vh);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  box-shadow: 0 24px 80px rgba(0,0,0,.28);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 70px;
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.modal-kicker {
+  margin: 0 0 5px;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 10px;
+  letter-spacing: .09em;
+}
+
+.modal-actions button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.modal-actions a:hover,
+.modal-actions button:hover {
+  opacity: .6;
+}
+
+.sketch-frame {
+  flex: 1;
+  min-height: 0;
+  background: #222;
+}
+
+.sketch-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+body.modal-open { overflow: hidden; }
+
+@media (max-width: 700px) {
+  .site-header {
+    padding: 22px 5vw;
+  }
+
+  .site-header nav {
+    gap: 16px;
+  }
+
+  .site-header nav a {
+    font-size: 9px;
+  }
+
+  main { width: 90vw; }
+
+  .intro {
+    padding: 18vw 0 15vw;
+  }
+
+  h1 {
+    font-size: clamp(36px, 11.5vw, 60px);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 16vw;
+  }
+
+  .modal {
+    padding: 0;
+  }
+
+  .modal-panel {
+    width: 100vw;
+    height: 100dvh;
+  }
+
+  .modal-header {
+    min-height: 66px;
+    padding: 12px 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 17px;
+  }
+
+  .modal-actions {
+    gap: 13px;
+    font-size: 9px;
+  }
+}
